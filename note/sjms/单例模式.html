@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>单例模式 | dailin‘s note</title>
+    <meta name="description" content="day day up">
+    <link rel="icon" href="/head.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.849f745c.css" as="style"><link rel="preload" href="/assets/js/app.86a7ad1d.js" as="script"><link rel="preload" href="/assets/js/2.acb29225.js" as="script"><link rel="preload" href="/assets/js/8.6e534b41.js" as="script"><link rel="prefetch" href="/assets/js/10.bcd97475.js"><link rel="prefetch" href="/assets/js/11.14612211.js"><link rel="prefetch" href="/assets/js/12.c5763f99.js"><link rel="prefetch" href="/assets/js/13.686144d8.js"><link rel="prefetch" href="/assets/js/14.00ca1e2d.js"><link rel="prefetch" href="/assets/js/15.7cec42ae.js"><link rel="prefetch" href="/assets/js/3.df12b547.js"><link rel="prefetch" href="/assets/js/4.9cebb50a.js"><link rel="prefetch" href="/assets/js/5.b17c5988.js"><link rel="prefetch" href="/assets/js/6.d0daa097.js"><link rel="prefetch" href="/assets/js/7.9629c95f.js"><link rel="prefetch" href="/assets/js/9.be46a3d9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.849f745c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">dailin‘s note</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/java/pom文件解析.html" class="nav-link">java</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><span class="title">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/note/sjms/UML时序图.html" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/note/docker/docker.html" class="nav-link">docker</a></li><li class="dropdown-item"><!----> <a href="/note/rocketMQ/rocketMQ.html" class="nav-link">rocketMQ</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="链接" class="dropdown-title"><span class="title">链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.processon.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  在线流程图
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/huangdailin/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/java/pom文件解析.html" class="nav-link">java</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><span class="title">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/note/sjms/UML时序图.html" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/note/docker/docker.html" class="nav-link">docker</a></li><li class="dropdown-item"><!----> <a href="/note/rocketMQ/rocketMQ.html" class="nav-link">rocketMQ</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="链接" class="dropdown-title"><span class="title">链接</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.processon.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  在线流程图
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/huangdailin/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/note/sjms/UML时序图.html" class="sidebar-link">UML时序图</a></li><li><a href="/note/sjms/单例模式.html" class="active sidebar-link">单例模式</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/note/sjms/命令模式与策略模式.html" class="sidebar-link">命令模式和策略模式</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="单例模式"><a href="#单例模式" class="header-anchor">#</a> 单例模式</h1> <blockquote><p>@author huangdailin</p></blockquote> <p>在有些系统中，为了节省内存资源、保证数据内容的一致性，对某些类要求只能创建一个实例，就是<code>单例模式</code>；</p> <h3 id="一、定义与特点"><a href="#一、定义与特点" class="header-anchor">#</a> 一、定义与特点</h3> <p><code>单例模式的定义</code>：指一个类只有一个实例，且该类能自行创建这个实例的一种模式。比如，Windows中只能打开一个任务管理器，可以避免因为打开多个任务管理器窗口而造成的资源浪费，或者出现各个窗口显示内容不一致的错误。</p> <p><code>常见的单例</code>：在计算机系统中，Windows的回收站、操作系统中的文件系统、多线程中的线程池、显卡中的驱动程序对象、打印机的后台处理服务、应用程序的日志对象、数据库的连接池、网站的计数器、web应用的配置对象、应用程序的对话框、系统中的缓存等；</p> <p><code>单例模式的特点：</code></p> <ol><li>单例类只有一个实例对象；</li> <li>该单例对象必须是由单例类自行创建；</li> <li>单例类对外提供一个访问该单例的全局访问点；</li></ol> <h3 id="二、结构与实现"><a href="#二、结构与实现" class="header-anchor">#</a> 二、结构与实现</h3> <p>单例模式是设计模式中最简单的模式之一。通常，普通类的构造函数是公有的，外部类可以通过<code>new 构造函数()</code>来生成多个实例。但是，如果将类的构造函数设为私有的，外部类就无法调用该构造函数，也就没有办法生成多个实例。这时候该类本身必须要<code>定义一个静态私有实例</code>，并且向外提供一个<code>静态的公有函数</code>用于创建或者获取该静态私有实例。</p> <h4 id="_1）单例模式的结构"><a href="#_1）单例模式的结构" class="header-anchor">#</a> 1）单例模式的结构</h4> <p>单例模式的主要角色如下：</p> <ul><li>单例类：包含一个实例并且能够自行创建这个实例的类；</li> <li>访问类：使用该单例的类。</li></ul> <p>类图如下所示：</p> <p><img src="/assets/img/singleton1.9a395d9f.png" alt="1575094274347"></p> <h4 id="_2）单例模式的实现"><a href="#_2）单例模式的实现" class="header-anchor">#</a> 2）单例模式的实现</h4> <h5 id="_1-懒汉式单例"><a href="#_1-懒汉式单例" class="header-anchor">#</a> 1.<code>懒汉式单例</code></h5> <p>这种模式的特点是类加载的时候没有生成单例，只有当第一次调用<code>getInstance()</code>方法时才会去创建这个单例。代码如下：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LazySingleton</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 保证instance在所以线程中同步
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">LazySingleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * private 避免在外部被实例化
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">LazySingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 静态公有方法
+     *
+     * @return 实例对象
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> <span class="token class-name">LazySingleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazySingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>注意：</code>如果编写的是多线程程序，不能删除代码中的<code>volatile</code>和<code>synchronized</code>关键字，否则将会存在<code>线程非安全</code>的问题。有了两个关键字就能够保证线程安全，但是每次访问时都要同步，会影响性能，这就是懒汉式单例的缺点。</p> <h5 id="_2-饿汉式单例"><a href="#_2-饿汉式单例" class="header-anchor">#</a> 2.<code>饿汉式单例</code></h5> <p>这种模式的特点是一旦类被加载，保证在调用<code>getInstance()</code>方法之前单例就已经存在了。代码如下：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HungrySingleton</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 类加载就创建单例
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">HungrySingleton</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HungrySingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * 私有构造方法
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">HungrySingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 静态公有方法
+     *
+     * @return 实例对象
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">HungrySingleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>注意：</code>饿汉式单例模式在类创建时就已经创建好了一个静态的对象供系统使用，以后不会再改变，所以是<code>线程安全的</code>，可以直接用于多线程而不会出现问题。<code>缺点：</code>因为一开始就初始化，容易产生垃圾。</p> <h5 id="_3-静态内部类单例"><a href="#_3-静态内部类单例" class="header-anchor">#</a> 3.<code>静态内部类单例</code></h5> <p>只有第一次调用<code>getInstance()</code>方法时，虚拟机才加载 <code>Inner</code> 并初始化<code>instance</code> 。代码如下：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InnerSingleton</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 私有构造方法
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">InnerSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 静态内部类
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Inner</span> <span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">InnerSingleton</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InnerSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 静态公有方法
+     *
+     * @return 实例对象
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">InnerSingleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Inner</span><span class="token punctuation">.</span>instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>注意：</code>只有一个线程可以获得对象的初始化锁，其他线程无法进行初始化，保证对象的唯一性。目前此方式是所有单例模式中<code>最推荐的模式</code>，但具体还是根据项目选择。</p> <h3 id="三、应用场景"><a href="#三、应用场景" class="header-anchor">#</a> 三、应用场景</h3> <p>根据单例模式的结构和特点，下面是适用的场景的特点</p> <ul><li>在应用场景中，某类只要求生成一个对象的时候，如一个班中的班长、每个人的身份证号等。</li> <li>当对象需要被共享的场合。由于单例模式只允许创建一个对象，共享该对象可以节省内存，并加快对象的访问速度。如web中的配置对象、数据库的连接池等。</li> <li>当某类需要频繁的实例化，而创建的对象又频繁的被销毁的时候，如多线程的线程池、网络连接池等。</li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上传时间:</span> <span class="time">11/30/2019, 5:04:17 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/note/sjms/UML时序图.html" class="prev">UML时序图</a></span> <span class="next"><a href="/note/sjms/命令模式与策略模式.html">命令模式和策略模式</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2dcanvas" width="135" height="300" class="live2dcanvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/assets/js/app.86a7ad1d.js" defer></script><script src="/assets/js/2.acb29225.js" defer></script><script src="/assets/js/8.6e534b41.js" defer></script>
+  </body>
+</html>
